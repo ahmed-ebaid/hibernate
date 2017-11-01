@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-configuration SYSTEM 
+"http://www.hibernate.org/dtd/hibernate-configuration-3.0.dtd">
+<hibernate-configuration>
+	<session-factory>
+
+		<!-- hibernate.dialect: This property makes Hibernate generate the appropriate 
+			SQL for the chosen database. -->
+		<property name="hibernate.dialect">
+			org.hibernate.dialect.MySQLDialect
+		</property>
+
+		<!-- hibernate.connection.driver_class: The JDBC driver class. -->
+		<property name="hibernate.connection.driver_class">
+			com.mysql.cj.jdbc.Driver
+		</property>
+
+		<!-- employee_services is the database name hibernate.connection.url: The 
+			JDBC URL to the database instance. -->
+		<property name="hibernate.connection.url">
+			jdbc:mysql://localhost:3306/employee_services_db?serverTimezone=UTC
+		</property>
+
+		<!-- hibernate.connection.username: The database username. -->
+		<property name="hibernate.connection.username">
+			ahmedebaid
+		</property>
+
+		<!-- hibernate.connection.password: The database password. -->
+		<property name="hibernate.connection.password">
+			stash_invest
+		</property>
+
+		<property name="hibernate.cache.provider_class">
+			org.hibernate.cache.EhCacheProvider
+		</property>
+
+		<!-- Enable or disable second level caching overall. Default is true, although 
+			the default region factory is NoCachingRegionFactory. -->
+		<property name="cache.use_second_level_cache">
+			true
+		</property>
+
+		<!-- defines the integration between Hibernate and a pluggable caching 
+			provider. It is also used to declare the provider to use. Hibernate comes 
+			with built-in support for the Java caching standard JCache and also two popular 
+			caching libraries: Ehcache and Infinispan -->
+		<property name="hibernate.cache.region.factory_class">
+			org.hibernate.cache.ehcache.EhCacheRegionFactory
+		</property>
+
+		<property name="hibernate.cache.use_structured_entries">
+			true
+		</property>
+
+
+
+
+
+		<!-- List of XML mapping files -->
+		<mapping resource="Employee.hbm.xml" />
+	</session-factory>
+</hibernate-configuration>
